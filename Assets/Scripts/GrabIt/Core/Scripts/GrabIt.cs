@@ -59,9 +59,9 @@ public class GrabIt : MonoBehaviour {
 	[SerializeField]
 	LayerMask m_collisionMask;
 
-	
 
-	Rigidbody m_targetRB = null;
+
+    Rigidbody m_targetRB = null;
 	Transform m_transform;	
 
 	Vector3 m_targetPos;
@@ -111,16 +111,14 @@ public class GrabIt : MonoBehaviour {
 			}else if ( Input.GetMouseButtonDown(1) ){
 				m_applyImpulse = true;
 			}
-
-			
-		}
+        }
 		else
 		{
 
 			if(Input.GetMouseButtonDown(0))
 			{
 				RaycastHit hitInfo;
-				if(Physics.Raycast(m_transform.position , m_transform.forward , out hitInfo , m_grabMaxDistance , m_collisionMask ))
+				if(Physics.Raycast(m_transform.position , m_transform.forward , out hitInfo , m_grabMaxDistance , 1 << 3))
 				{
 					Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
 					if(rb != null){							
@@ -168,15 +166,11 @@ public class GrabIt : MonoBehaviour {
 		m_targetRB.drag = m_defaultProperties.m_drag;
 		m_targetRB.angularDrag = m_defaultProperties.m_angularDrag;
 		m_targetRB.constraints = m_defaultProperties.m_constraints;
-		
 		m_targetRB = null;
-
-		m_hitPointObject.transform.SetParent(null);
-		
+		m_hitPointObject.transform.SetParent(null);	
 		if(m_lineRenderer != null)
 			m_lineRenderer.enabled = false;
 	}
-
 	void Grab()
 	{
 		Vector3 hitPointPos = m_hitPointObject.transform.position;
@@ -187,13 +181,11 @@ public class GrabIt : MonoBehaviour {
 		else
 			m_targetRB.velocity = m_grabSpeed * dif;		
 
-		
 		if(m_lineRenderer != null){
 			m_lineRenderer.enabled = true;
 			m_lineRenderer.SetPositions( new Vector3[]{ m_targetPos , hitPointPos });
 		}
 	}
-
 	void Rotate()
 	{
 		if(Input.GetKey(m_rotatePitchPosKey)){
@@ -201,14 +193,12 @@ public class GrabIt : MonoBehaviour {
 		}else if(Input.GetKey(m_rotatePitchNegKey)){
 			m_targetRB.AddTorque(  - m_transform.right * m_angularSpeed );
 		}
-
 		if(Input.GetKey(m_rotateYawPosKey)){
 			m_targetRB.AddTorque( - m_transform.up * m_angularSpeed );
 		}else if(Input.GetKey(m_rotateYawNegKey)){
 			m_targetRB.AddTorque( m_transform.up * m_angularSpeed );
 		}
 	}
-	
 	void FixedUpdate()
 	{
 		if(!m_grabbing)
@@ -216,9 +206,7 @@ public class GrabIt : MonoBehaviour {
 		
 		if(!m_isHingeJoint)
 			Rotate();
-		
 		Grab();		
-
 		if(m_applyImpulse){
 			m_targetRB.velocity = m_transform.forward * m_impulseMagnitude;
 			Reset();
@@ -227,7 +215,5 @@ public class GrabIt : MonoBehaviour {
 		}
 		
 	}
-
 }
-
 }
