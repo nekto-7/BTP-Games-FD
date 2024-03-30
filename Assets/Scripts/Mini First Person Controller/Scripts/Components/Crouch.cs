@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 
-public class Crouch : MonoBehaviour
+public class Crouch : NetworkBehaviour
 {
     public KeyCode key = KeyCode.LeftControl;
 
@@ -36,6 +37,7 @@ public class Crouch : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!isLocalPlayer) return;
         if (Input.GetKey(key))
         {
             // Enforce a low head.

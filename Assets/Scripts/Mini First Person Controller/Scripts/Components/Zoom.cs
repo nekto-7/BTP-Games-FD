@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using Mirror;
 
 [ExecuteInEditMode]
-public class Zoom : MonoBehaviour
+public class Zoom : NetworkBehaviour
 {
     Camera camera;
     public float defaultFOV = 60;
@@ -23,6 +24,7 @@ public class Zoom : MonoBehaviour
 
     void Update()
     {
+        //if (!isLocalPlayer) return;
         // Update the currentZoom and the camera's fieldOfView.
         currentZoom += Input.mouseScrollDelta.y * sensitivity * .05f;
         currentZoom = Mathf.Clamp01(currentZoom);

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using Mirror;
 
-public class Jump : MonoBehaviour
+public class Jump : NetworkBehaviour
+
 {
     Rigidbody rigidbody;
     public float jumpStrength = 2;
@@ -15,7 +17,10 @@ public class Jump : MonoBehaviour
         // Try to get groundCheck.
         groundCheck = GetComponentInChildren<GroundCheck>();
     }
-
+    private void Update()
+    {
+        if (!isLocalPlayer) return;
+    }
     void Awake()
     {
         // Get rigidbody.

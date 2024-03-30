@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Mirror;
 namespace Lightbug.GrabIt
 {
 
@@ -13,7 +13,8 @@ public class GrabObjectProperties{
 
 }
 
-public class GrabIt : MonoBehaviour {
+public class GrabIt : NetworkBehaviour
+    {
 
 	[Header("Input")]
 	[SerializeField] KeyCode m_rotatePitchPosKey = KeyCode.I;
@@ -88,7 +89,8 @@ public class GrabIt : MonoBehaviour {
 	
 	void Update()
 	{
-		if( m_grabbing )
+            if (!isLocalPlayer) return;
+            if ( m_grabbing )
 		{
 
 			m_targetDistance += Input.GetAxisRaw("Mouse ScrollWheel") * m_scrollWheelSpeed;			
