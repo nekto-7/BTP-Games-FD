@@ -24,7 +24,7 @@ public class Zoom : NetworkBehaviour
 
     void Update()
     {
-        //if (!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         // Update the currentZoom and the camera's fieldOfView.
         currentZoom += Input.mouseScrollDelta.y * sensitivity * .05f;
         currentZoom = Mathf.Clamp01(currentZoom);

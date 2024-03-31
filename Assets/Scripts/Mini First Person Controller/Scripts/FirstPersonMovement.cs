@@ -23,10 +23,11 @@ public class FirstPersonMovement : NetworkBehaviour
     }
     private void Update()
     {
-        if (!isLocalPlayer) return;
+       if (!isLocalPlayer) return;
     }
     void FixedUpdate()
     {
+         
         // Update IsRunning from input.
         IsRunning = canRun && Input.GetKey(runningKey);
 

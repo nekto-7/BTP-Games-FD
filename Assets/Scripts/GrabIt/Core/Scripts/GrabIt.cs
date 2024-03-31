@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Mirror;
+//using Mirror;
 namespace Lightbug.GrabIt
 {
 
@@ -13,7 +13,7 @@ public class GrabObjectProperties{
 
 }
 
-public class GrabIt : NetworkBehaviour
+public class GrabIt : MonoBehaviour//Network
     {
 
 	[Header("Input")]
@@ -89,7 +89,7 @@ public class GrabIt : NetworkBehaviour
 	
 	void Update()
 	{
-            if (!isLocalPlayer) return;
+       // if (!isLocalPlayer) return;
             if ( m_grabbing )
 		{
 
@@ -203,6 +203,7 @@ public class GrabIt : NetworkBehaviour
 	}
 	void FixedUpdate()
 	{
+		//if (!isLocalPlayer) return;
 		if(!m_grabbing)
 			return;
 		

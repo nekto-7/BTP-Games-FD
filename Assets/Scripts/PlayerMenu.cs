@@ -7,18 +7,11 @@ public class PlayerMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(menu)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                menu.SetActive(false);
-            }
-            else
-            {
+
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-            }
+            
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

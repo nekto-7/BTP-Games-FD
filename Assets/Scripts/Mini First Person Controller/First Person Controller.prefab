@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceThreshold: 0.15
-  isGrounded: 0
+  isGrounded: 1
 --- !u!1 &1593727746557118
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +356,6 @@ GameObject:
   - component: {fileID: 986499873073242006}
   - component: {fileID: 6983158444727295665}
   - component: {fileID: 1513123392624726953}
-  - component: {fileID: 364531470745949291}
   m_Layer: 0
   m_Name: First Person Camera
   m_TagString: MainCamera
@@ -472,7 +471,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593727746557118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 780f90e951d635f439326ea715cd97e9, type: 3}
   m_Name: 
@@ -504,8 +503,8 @@ MonoBehaviour:
   m_rotateYawPosKey: 108
   m_rotateYawNegKey: 106
   m_grabSpeed: 7
-  m_grabMinDistance: 1
-  m_grabMaxDistance: 10
+  m_grabMinDistance: 0.1
+  m_grabMaxDistance: 5.18
   m_scrollWheelSpeed: 5
   m_angularSpeed: 300
   m_impulseMagnitude: 10
@@ -516,7 +515,7 @@ MonoBehaviour:
     m_constraints: 112
   m_collisionMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1032
 --- !u!120 &849293840802854145
 LineRenderer:
   serializedVersion: 2
@@ -681,41 +680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
---- !u!114 &364531470745949291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593727746557118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 1
-  syncMode: 0
-  syncInterval: 0
-  target: {fileID: 4490257326247362}
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  onlySyncOnChange: 1
-  compressRotation: 1
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 1
-  coordinateSpace: 0
-  sendIntervalMultiplier: 1
-  timelineOffset: 0
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  bufferResetMultiplier: 3
-  changedDetection: 1
-  positionSensitivity: 0.01
-  rotationSensitivity: 0.01
-  scaleSensitivity: 0.01
 --- !u!1 &1773623360729482
 GameObject:
   m_ObjectHideFlags: 0

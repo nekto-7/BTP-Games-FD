@@ -110,7 +110,10 @@ public class Crouch : NetworkBehaviour
             }
         }
     }
-
+    private void Update()
+    {
+       if (!isLocalPlayer) return;
+    }
 
     #region Speed override.
     void SetSpeedOverrideActive(bool state)
