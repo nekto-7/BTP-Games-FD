@@ -16,7 +16,7 @@ public class Zoom : NetworkBehaviour
     {
         // Get the camera on this gameObject and the defaultZoom.
         camera = GetComponent<Camera>();
-        if (camera)
+        if (camera != null)
         {
             defaultFOV = camera.fieldOfView;
         }
@@ -26,8 +26,11 @@ public class Zoom : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
         // Update the currentZoom and the camera's fieldOfView.
-        currentZoom += Input.mouseScrollDelta.y * sensitivity * .05f;
+        if(camera != null)
+	{
+	currentZoom += Input.mouseScrollDelta.y * sensitivity * .05f;
         currentZoom = Mathf.Clamp01(currentZoom);
         camera.fieldOfView = Mathf.Lerp(defaultFOV, maxZoomFOV, currentZoom);
-    }
+	}
+     }
 }

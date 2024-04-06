@@ -1,18 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using TMPro;
 public class Add_Menu_Options : MonoBehaviour
 {
-    public InputField inputField;
+    public TextMeshProUGUI ipAddressInputField;
     public NetworkManager networkManager;
 
-    private void Start()
+    public void SetNetworkAddress()
     {
-        inputField.onEndEdit.AddListener(OnEndEdit);
-    }
-
-    private void OnEndEdit(string text)
-    {
-        networkManager.networkAddress = text;
+        string ipAddress = ipAddressInputField.text;
+        networkManager.networkAddress = ipAddress;
+        Debug.Log("Network address set to: " + ipAddress);
     }
 }
+

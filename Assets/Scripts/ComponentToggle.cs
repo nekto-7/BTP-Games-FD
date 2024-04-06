@@ -3,24 +3,18 @@ using UnityEngine;
 
 public class ComponentToggle : NetworkBehaviour
 {
-    public GameObject componentToToggle;
+    public Camera playerCamera;
 
-    public override void OnStartServer()
+    void Start()
     {
-        base.OnStartServer();
-
-        // Включаем компонент при подключении нового клиента
-        componentToToggle.SetActive(true);
-        componentToToggle.SetActive(false);
+        if (!isLocalPlayer)
+        {
+            Destroy(playerCamera.gameObject);
+        }
     }
 
-    public override void OnStopServer()
+    void OnStartLocalPlayer()
     {
-        base.OnStopServer();
-
-        // Выключаем компонент при отключении клиента
-        componentToToggle.SetActive(false);
-        componentToToggle.SetActive(true);
-        
+        playerCamera.enabled = true;
     }
 }

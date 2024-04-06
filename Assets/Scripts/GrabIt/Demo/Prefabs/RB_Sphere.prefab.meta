@@ -12,5 +12,5 @@ AssetOrigin:
   productId: 105735
   packageName: Grab It
   packageVersion: 1.0
-  assetPath: Assets/GrabIt/Demo/Prefabs/RB_Sphere.prefab
+  assetPath: Assets/Scripts/GrabIt/Demo/Prefabs/RB_Sphere.prefab
   uploadId: 290321

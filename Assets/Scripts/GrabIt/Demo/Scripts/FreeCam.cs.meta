@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 105735
   packageName: Grab It
   packageVersion: 1.0
-  assetPath: Assets/GrabIt/Demo/Scripts/FreeCam.cs
+  assetPath: Assets/Scripts/GrabIt/Demo/Scripts/FreeCam.cs
   uploadId: 290321

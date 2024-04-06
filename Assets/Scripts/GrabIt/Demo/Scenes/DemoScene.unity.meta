@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 105735
   packageName: Grab It
   packageVersion: 1.0
-  assetPath: Assets/GrabIt/Demo/Scenes/DemoScene.unity
+  assetPath: Assets/Scripts/GrabIt/Demo/Scenes/DemoScene.unity
   uploadId: 290321
